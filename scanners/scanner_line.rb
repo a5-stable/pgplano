@@ -1,27 +1,7 @@
-class ScannerLine
-  NODE_TYPES = [
-    # scan
-    'Seq Scan', 'Index Scan', 'Index Only Scan',
-    'Bitmap Heap Scan', 'Bitmap Index Scan',
-    'Tid Scan', 'TidRange Scan', 'Sample Scan',
-    'Foreign Scan', 'Custom Scan',
-    # join
-    'Nested Loop', 'Merge Join', 'Hash Join',
-    # aggregate
-    'Aggregate', 'GroupAggregate', 'HashAggregate', 'MixedAggregate',
-    # sort & limit
-    'Sort', 'Incremental Sort', 'Limit',
-    # parallel
-    'Gather', 'Gather Merge',
-    # other
-    'Hash', 'Materialize', 'Memoize',
-    'Append', 'Merge Append', 'Result',
-    'ProjectSet', 'ModifyTable',
-    'LockRows', 'Unique', 'SetOp',
-    'CTE Scan', 'Subquery Scan', 'Function Scan',
-    'Values Scan', 'WorkTable Scan',
-  ].freeze
+require_relative "../util/node_master"
 
+class ScannerLine
+  NODE_TYPES = NODE_MASTER.keys.freeze
   NODE_PATTERN = /\A(#{NODE_TYPES.map { Regexp.escape(_1) }.join('|')})/
 
   attr_reader :depth, :tokens

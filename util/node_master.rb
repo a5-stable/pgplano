@@ -1,0 +1,46 @@
+NODE_MASTER = {
+  # scan
+  "Seq Scan" => [:table, :filter, :rows_removed_by_filter],
+  "Index Scan" => [:table, :index, :index_cond, :filter],
+  "Index Only Scan" => [:table, :index, :index_cond, :filter, :heap_fetches],
+  "Bitmap Heap Scan" => [],
+  "Bitmap Index Scan" => [],
+  "Tid Scan" => [],
+  "TidRange Scan" => [],
+  "Sample Scan" => [],
+  "Foreign Scan" => [],
+  "Custom Scan" => [],
+  # join
+  "Nested Loop" => [],
+  "Merge Join" => [],
+  "Hash Join" => [],
+  # aggregate
+  "Aggregate" => [],
+  "GroupAggregate" => [],
+  "HashAggregate" => [],
+  "MixedAggregate" => [],
+  # sort & limit
+  "Sort" => [],
+  "Incremental Sort" => [],
+  "Limit" => [],
+  # parallel
+  "Gather" => [],
+  "Gather Merge" => [],
+  # other
+  "Hash" => [],
+  "Materialize" => [],
+  "Memoize" => [],
+  "Append" => [],
+  "Merge Append" => [],
+  "Result" => [],
+  "ProjectSet" => [],
+  "ModifyTable" => [],
+  "LockRows" => [],
+  "Unique" => [],
+  "SetOp" => [],
+  "CTE Scan" => [],
+  "Subquery Scan" => [],
+  "Function Scan" => [],
+  "Values Scan" => [],
+  "WorkTable Scan" => [],
+}.freeze
