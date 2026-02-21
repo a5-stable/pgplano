@@ -5,9 +5,5 @@ module Nodes
                   :actual_time_startup, :actual_time_total,
                   :actual_rows, :loops,
                   :children
-
-    def initialize
-      @children = []
-    end
   end
 end

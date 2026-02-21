@@ -45,7 +45,7 @@ class ScannerLine
       next if scanner.scan(/[ \t()]+/)
 
       if scanner.scan(NODE_PATTERN)
-        tokens << [:NODE_TYPE, scanner[1]]
+        tokens << [:NODE_TYPE, scanner[1].gsub(/\s+/, '')]
       elsif scanner.scan(/on\s+(\w+)/)
         tokens << [:ON, scanner[1]]
       elsif scanner.scan(/using\s+(\w+)/)
