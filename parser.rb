@@ -48,6 +48,8 @@ class Parser
         node.actual_rows = value
       when :LOOPS
         node.loops = value
+      when :ON
+        node.table_name = value
       end
     end
   end

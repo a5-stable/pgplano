@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ruby.wasm Tutorial</title>
+  <script src="https://cdn.jsdelivr.net/npm/@ruby/3.4-wasm-wasi@2.8.1/dist/browser.script.iife.js"></script>
+</head>
+<body>
+  <h1>Step 3: Class + JSON</h1>
+  <button id="btn">Run</button>
+  <pre id="output"></pre>
+
+  <script type="text/ruby">
+    require "js"
+    require "json"
+
+    class Person
+      attr_accessor :name, :age
+    end
+
+    document = JS.global[:document]
+    btn = document.getElementById("btn")
+    output = document.getElementById("output")
+
+    btn.addEventListener("click") do
+      person = Person.new
+      person.name = "Taro"
+      person.age = 25
+
+      data = { name: person.name, age: person.age }
+      json = JSON.pretty_generate(data)
+      output[:innerText] = json
+    end
+  </script>
+</body>
+</html>
