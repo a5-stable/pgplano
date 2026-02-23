@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pgplano - PostgreSQL EXPLAIN Visualizer</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@ruby/3.4-wasm-wasi@2.8.1/dist/browser.script.iife.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+  <header>
+    <h1>pgplano</h1>
+  </header>
+
+  <main>
+    <div class="panel">
+      <div class="panel-header">
+        <span>EXPLAIN ANALYZE</span>
+        <button id="parse-btn">Parse</button>
+      </div>
+      <div class="panel-content">
+        <textarea id="input-area" placeholder="Paste your EXPLAIN ANALYZE output here..."></textarea>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span>Execution Plan</span>
+      </div>
+      <div class="panel-content">
+        <div id="output" class="tree">
+          <div class="empty-state">
+            <p>Enter EXPLAIN ANALYZE output and click Parse</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/tree.js"></script>
+  <script type="text/ruby" src="/src/ui.rb"></script>
+</body>
+</html>
